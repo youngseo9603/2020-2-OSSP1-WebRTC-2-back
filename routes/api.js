@@ -15,7 +15,7 @@ router.post("/api/users/register", (req, res) => {
 // 로그인
 router.post("/api/users/login", (req, res) => {
   // 요청된 이메일 탐색
-  User.findOne({ userID: req.body.userID }, (err, user) => {
+  User.findOne({ email: req.body.email }, (err, user) => {
     if (!user) {
       return res.json({
         loginSuccess: false,

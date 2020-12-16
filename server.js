@@ -29,7 +29,7 @@ mongoose
 
 // SOLVE CORS POLICY
 let corsOption = {
-  origin: "http://localhost:3000",
+  origin: "http://localhost:2000",
   credentials: true
 };
 
