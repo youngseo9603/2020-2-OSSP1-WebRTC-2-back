@@ -40,7 +40,8 @@ router.post("/api/users/login", (req, res) => {
             loginSuccess: true,
             userId: user._id,
             email: user.email,
-            name: user.name
+            name: user.name,
+            status: user.role
           });
       });
     });
