@@ -11,7 +11,7 @@ const FileStore = require("session-file-store")(session);
 const { User } = require("./schema/User");
 
 // CONFIGURE SERVER PORT
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 9000;
 
 // CONNECT DATABASE
 mongoose
@@ -29,9 +29,15 @@ mongoose
 
 // SOLVE CORS POLICY
 let corsOption = {
-  origin: "http://localhost:2000",
+  origin: "http://localhost:2001",
   credentials: true
 };
+
+server.all("/*", function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 
 server.use(cors(corsOption));
 server.use(cookieParser());
